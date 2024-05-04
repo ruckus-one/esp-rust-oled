@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "freewolf",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-c3-devkitm-1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "builder": "rust-std-esp" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 79.94,
+      "left": -153.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3.2", "oled1:VCC", "red", [ "h0" ] ],
+    [ "esp:GND.1", "oled1:GND", "black", [ "h-32.58", "v-0.3", "h-86.4" ] ],
+    [ "esp:2", "oled1:SDA", "green", [ "h0" ] ],
+    [ "esp:3", "oled1:SCL", "green", [ "h0" ] ]
+  ],
+  "serialMonitor": { "display": "terminal" },
+  "dependencies": {}
+}
